@@ -1,7 +1,26 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
+const Background = styled.div`
+  height: 100%;
+  width: 100%;
+  background-image: url('https://unsplash.com/photos/jRstSDofB34/download');
+  background-size: cover;
+`;
+
+const Masked = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(196, 196, 196, 0.1);
+  -webkit-mask-image: url(/mask.svg);
+  mask-image: url(/mask.svg);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+`;
+
 const Container = styled.div`
+  height: inherit;
   min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
@@ -121,55 +140,58 @@ const Logo = styled.img`
 
 export default function Home(): JSX.Element {
   return (
-    <Container>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Background>
+      <Masked />
+      <Container>
+        <Head>
+          <title>Create Next App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Main>
-        <Title>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </Title>
+        <Main>
+          <Title>
+            Welcome to <a href="https://nextjs.org">Next.js!</a>
+          </Title>
 
-        <Description>
-          Get started by editing <Code>pages/index.tsx</Code>
-        </Description>
+          <Description>
+            Get started by editing <Code>pages/index.tsx</Code>
+          </Description>
 
-        <Grid>
-          <Card href="https://nextjs.org/docs">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </Card>
+          <Grid>
+            <Card href="https://nextjs.org/docs">
+              <h3>Documentation &rarr;</h3>
+              <p>Find in-depth information about Next.js features and API.</p>
+            </Card>
 
-          <Card href="https://nextjs.org/learn">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </Card>
+            <Card href="https://nextjs.org/learn">
+              <h3>Learn &rarr;</h3>
+              <p>Learn about Next.js in an interactive course with quizzes!</p>
+            </Card>
 
-          <Card href="https://github.com/vercel/next.js/tree/master/examples">
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </Card>
+            <Card href="https://github.com/vercel/next.js/tree/master/examples">
+              <h3>Examples &rarr;</h3>
+              <p>Discover and deploy boilerplate example Next.js projects.</p>
+            </Card>
 
-          <Card href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </Card>
-        </Grid>
-      </Main>
+            <Card href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
+              <h3>Deploy &rarr;</h3>
+              <p>
+                Instantly deploy your Next.js site to a public URL with Vercel.
+              </p>
+            </Card>
+          </Grid>
+        </Main>
 
-      <Footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <Logo src="/vercel.svg" alt="Vercel Logo" />
-        </a>
-      </Footer>
-    </Container>
+        <Footer>
+          <a
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered by <Logo src="/vercel.svg" alt="Vercel Logo" />
+          </a>
+        </Footer>
+      </Container>
+    </Background>
   );
 }
